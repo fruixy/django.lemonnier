@@ -15,7 +15,7 @@ class Machine(models.Model):
     nom= models.CharField(max_length= 10)
     utilisateur=models.CharField(max_length=15) 
     responsable=models.CharField(max_length=15)
-    infrastructure=models.CharField(max_length=1)
+    infrastructure=models.CharField(max_length=15)
     maintenanceDate = models.DateField(default = datetime.now())
     mach = models.CharField(max_length=32, choices=TYPE, default='PC')
     

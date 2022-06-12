@@ -1,9 +1,12 @@
 {% extends "index.html" %}
 
 {% block content %}
-    <h1>Nom: {{ machine.nom }}</h1>
+    <p><strong> {{ machine.nom }} </strong></p>
     
     <p><strong>Id</strong> : {{ machine.id }}</p>
+    <p><strong>utilisateur</strong>{{machine.utilisateur}}</p>
+    <p><strong>responsable</strong> : {{ machine.responsable }}</p>
+    <p><strong>infrastructure</strong> : {{ machine.infrastructure }}</p>
     <p><strong>Date de maintenance :</strong> {{machine.maintenanceDate}}</p>
     <p><strong>machine :</strong> {{ machine.mach }}</p>
 {% endblock %}

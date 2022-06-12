@@ -1,9 +1,9 @@
 {% extends "index.html" %}
 
 {% block content %}
-    <h1>Nom: {{ machine.name }}</h1>
-    
-    <p><strong>Id</strong> : {{ machine.id }}</p>
-    <p><strong>Date de maintenance :</strong> {{machine.maintenanceDate}}</p>
-    <p><strong>machine :</strong> {{ machine.mach }}</p>
+<form method="post">
+    {% csrf_token %}
+    <h1>Nom: </h1>{{ form.nom }}
+    <input type="submit" value="Submit">
+</form>
 {% endblock %}

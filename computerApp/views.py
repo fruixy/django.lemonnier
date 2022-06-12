@@ -29,7 +29,9 @@ def machine_add_form(request):
 	if request.method == 'POST':
 		form = AddMachineForm(request.POST or None)
 		if form.is_valid():
-			new_machine = Machine(nom=form.cleaned_data['nom'])
+			new_machine = Machine(
+				nom=form.cleaned_data['nom']
+				)
 			new_machine.save()
 			return redirect('machines')
 	
@@ -37,6 +39,7 @@ def machine_add_form(request):
 		form = AddMachineForm()
 		context = {'form': form}
 		return render(request, 'machine_add.html',context)
+
 
 
 
@@ -81,7 +84,7 @@ def infrastructure_add_form(request):
 	if request.method == 'POST':
 		form = AddInfrastructureForm(request.POST or None)
 		if form.is_valid():
-			new_infrastructure = Infrastructure(nom=form.cleaned_data['infra'])
+			new_infrastructure = Infrastructure(nom=form.cleaned_data['infrastructure'])
 			new_infrastructure.save()
 			return redirect('machines')
 	

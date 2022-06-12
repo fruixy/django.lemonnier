@@ -1,0 +1,14 @@
+{% extends "index.html" %}
+
+{% block content %}
+    <p><strong> {{ personnelle.nom }} </strong></p>
+    
+    <p><strong>Id</strong> : {{ personnelle.id }}</p>
+    <p><strong>nom</strong>{{personnelle.nom}}</p>
+    <p><strong>prenom</strong> : {{ personnelle.prenom }}</p>
+    <p><strong>infrastructure</strong> : {{ personnelle.infrastructure }}</p>
+    <p><strong>Date d'arrivé :</strong> {{personnelle.data_entree}}</p>
+    <p><strong>emain</strong> {{ personnelle.email }}</p>
+    <p><strong>num</strong> {{ personnelle.num }}</p>
+    
+{% endblock %}
