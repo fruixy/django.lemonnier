@@ -1,3 +1,4 @@
+<!-- importation de index.html-->
 {% extends "index.html" %}
 
 {% block content %}
@@ -14,8 +15,10 @@
         <th scope="col">Supprimer</th>
       </tr>
     </thead>
+    <!-- regarde si il y a des valeur dans infrastrutures-->
     {% if infrastructures %}
     <tbody>
+      <!-- on appele chaque infrastructure une par une puis on affiche leurs valeurs-->
         {% for infrastructure in infrastructures %}
           <tr>
             <th scope="row">{{ infrastructure.id }}</th>
@@ -27,6 +30,7 @@
           </tr>
         {% endfor %}
     </tbody>
+    <!--si il n'y a pas de valeur dans infrastructures alors:-->
     {% else %}
         <p>il n\'y a pas de infrastructure.</p>
     {% endif %}

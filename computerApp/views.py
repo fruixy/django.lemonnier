@@ -10,6 +10,8 @@ from .forms import AddPersonnelleForm
 #from computerApp.forms import createMachineForm
 # Create your views here.
 
+
+#page d'acceuL / dashboard
 def index(request) :
 	nb_machines = Machine.objects.count()
 	nb_infrastrutures = Infrastructure.objects.count()
@@ -26,7 +28,9 @@ def index(request) :
 	
 
 
-
+# machine list= affiche les machines
+#machine add= permet d'ajouter des machines 
+#machine remove= permet de supprimer des machines
 def machine_list_view(request) :
 	nb_machines = Machine.objects.count()
 	machines = Machine.objects.all()
@@ -56,7 +60,9 @@ def machine_remove(request, id):
 		
 
 
-
+# personnelle list= affiche les personnelles
+#personnelle add= permet d'ajouter des personnelles 
+#personnelle remove= permet de supprimer des personnelles
 
 def personnelle_list_view(request) :
 	nb_personnelles = Personnelle.objects.count()
@@ -86,6 +92,9 @@ def personnelle_remove(request, id):
 
 
 
+# infrastructure list= affiche les infrastructures
+#infrastructure add= permet d'ajouter des infrastructures 
+#infrastructure remove= permet de supprimer des infrastructures
 
 def infrastructure_list_view(request):
 	nb_infrastrutures = Infrastructure.objects.count()

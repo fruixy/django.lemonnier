@@ -1,3 +1,4 @@
+<!-- importation de index.html-->
 {% extends "index.html" %}
 
 {% block content %}
@@ -16,8 +17,10 @@
         <th scope="col"> Supprimer</th>
       </tr>
     </thead>
+    <!-- regarde si il y a des valeur dans machines-->
     {% if machines %}
     <tbody>
+      <!-- on appele chaque machine une par une puis on affiche leurs valeurs-->
         {% for machine in machines %}
           <tr>
             <th scope="row">{{ machine.id }}</th>
@@ -31,6 +34,7 @@
           </tr>
         {% endfor %}
     </tbody>
+    <!--si il n'y a pas de valeur dans machines alors:-->
     {% else %}
         <p>il n\'y a pas de machine.</p>
     {% endif %}

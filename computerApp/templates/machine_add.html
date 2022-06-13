@@ -1,9 +1,12 @@
+<!-- importation de index.html-->
 {% extends "index.html" %}
 
 {% block content %}
 <h1>ajouter machine</h1>
 <form method="post">
+    <!-- token permettant de sécuriser la méthod POST avec une clé sécurisé-->
     {% csrf_token %}
+    <!-- demande les valeurs du formulaires-->
     {{ machine.as_p }}
     <input type="submit" class="btn btn-primary" value="ajouter">
 </form>

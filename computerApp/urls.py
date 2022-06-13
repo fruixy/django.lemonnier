@@ -4,6 +4,8 @@
 from django.urls import path
 from . import views
 
+
+#on crée les différentes redirections nécessaire
 urlpatterns = [
 	path('', views.index, name='index'),
     path('add_machine/', views.machine_add_form, name='machine_add'),

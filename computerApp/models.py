@@ -3,6 +3,7 @@ from datetime import datetime
 
 # Create your models here.
 
+#model des machines
 class Machine(models.Model):
 
     TYPE = (
@@ -20,7 +21,7 @@ class Machine(models.Model):
     mach = models.CharField(max_length=32, choices=TYPE, default='PC')
 
 
-
+#models des personnelles
 class Personnelle(models.Model):
 
     id = models.AutoField(primary_key=True,editable=False)
@@ -32,6 +33,7 @@ class Personnelle(models.Model):
     date_entree=models.DateField(default = datetime.now())
 
 
+#models des infrastructures
 class Infrastructure(models.Model):
     
     id = models.AutoField(primary_key=True,editable=False)

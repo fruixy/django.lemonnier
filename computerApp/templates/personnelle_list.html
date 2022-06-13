@@ -1,5 +1,7 @@
+<!-- importation de index.html-->
 {% extends "index.html" %}
 
+<!--permet de rentrer ce code dans le code de index.html-->
 {% block content %}
 <p class="titre">PERSONNELLES</p>
 <p class="titre">nombre de personnelles : {{ nb_personnelles }}</p>
@@ -16,8 +18,10 @@
         <th scope="col">Supprimer</th>
       </tr>
     </thead>
+    <!-- regarde si il y a des valeur dans personnelles-->
     {% if personnelles %}
     <tbody>
+      <!-- on appele chaque personnelle un par un puis on affiche leur valeurs-->
         {% for personnelle in personnelles %}
           <tr>
             <th scope="row">{{ personnelle.id }}</th>
@@ -31,6 +35,7 @@
           </tr>
         {% endfor %}
     </tbody>
+    <!--si il n'y a pas de valeur dans personnelle alors:-->
     {% else %}
         <p>il n\'y a pas de personnelle.</p>
     {% endif %}
