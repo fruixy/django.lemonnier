@@ -11,23 +11,29 @@ from .forms import AddPersonnelleForm
 # Create your views here.
 
 def index(request) :
-	context = {}
-	return render(request, 'index.html', context=context)
-
-def dashboard(request) :
+	nb_machines = Machine.objects.count()
+	nb_infrastrutures = Infrastructure.objects.count()
 	machines = Machine.objects.order_by('maintenanceDate')
 	infrastructures = Infrastructure.objects.order_by('maintenanceDate')
 	context = {
+		'nb_infrastructures' : nb_infrastrutures,
+		'nb_machines' : nb_machines,
 		'machines': machines,
 		'infrastructures': infrastructures
 	}
-	return render(request, 'dashboard.html', context)
+	return render(request, 'index.html', context)
+
+	
 
 
 
 def machine_list_view(request) :
+	nb_machines = Machine.objects.count()
 	machines = Machine.objects.all()
-	context={'machines': machines}
+	context={
+		'nb_machines' : nb_machines,
+		'machines': machines
+		}
 	return render(request, 'machine_list.html', context)
 
 
@@ -53,8 +59,12 @@ def machine_remove(request, id):
 
 
 def personnelle_list_view(request) :
+	nb_personnelles = Personnelle.objects.count()
 	personnelles = Personnelle.objects.all()
-	context={'personnelles': personnelles}
+	context={
+		'nb_personnelles' : nb_personnelles,
+		'personnelles': personnelles
+		}
 	return render(request, 'personnelle_list.html', context)
 
 
@@ -78,8 +88,12 @@ def personnelle_remove(request, id):
 
 
 def infrastructure_list_view(request):
+	nb_infrastrutures = Infrastructure.objects.count()
 	infrastructures = Infrastructure.objects.all()
-	context={'infrastructures': infrastructures}
+	context={
+		'nb_infrastructures' : nb_infrastrutures,
+		'infrastructures': infrastructures
+		}
 	return render(request, 'infrastructure_list.html', context)
 
 

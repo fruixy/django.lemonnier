@@ -16,14 +16,68 @@
 			<ul class="navbar-nav" style="width: 100%;">
 				<li style="width: 20%;">{% load static %}
 					<img src="{% static 'computerapp/images/rtdev_nobg.png' %}" alt="logo" style="width: 70%;"></li>
-				<li class="nav-item"><a class="navbar-brand" style="color: #007bff;" href="{% url 'dashboard' %}">dashboard</a></li>
-				<li class="nav-item"><a class="navbar-brand" style="color: #007bff;" href="{% url 'machines' %}">machines</a></li>
-				<li class="nav-item"><a class="navbar-brand" style="color: #007bff;" href="{% url 'personnelles' %}">personnelles</a></li>
-				<li class="nav-item"><a class="navbar-brand" style="color: #007bff;" href="{% url 'infrastructures' %}">infrastructures</a></li>
+				<li class="nav-item"><a class="btn btn-info" style=" font-size: 150%; color: #007bff; " href="{% url 'index' %}">dashboard</a></li>
+				<li class="nav-item"><a class="btn btn-info" style=" font-size: 150%; color: #007bff; " href="{% url 'machines' %}">machines</a></li>
+				<li class="nav-item"><a class="btn btn-info" style=" font-size: 150%; color: #007bff; " href="{% url 'personnelles' %}">personnelles</a></li>
+				<li class="nav-item"><a class="btn btn-info" style=" font-size: 150%; color: #007bff; " href="{% url 'infrastructures' %}">infrastructures</a></li>
 			</ul>
 		</nav>
 		{% endblock %}
 		{% block content %}
+				<div style="width: 100%; text-align: center;">
+					<div style="width: 45%; float: left; margin-left: 2%;">
+						<p class="titre">INFRASTRUCTURES MAJ</p>
+						<p class="titre">nombre d'infrastructures : {{ nb_infrastructures }}</p>
+						<table class="table table-dark">
+							<thead>
+							  <tr>
+								<th scope="col">#</th>
+								<th scope="col">Nom Infrastructure</th>
+								<th scope="col">MaintenanceDate</th>
+							  </tr>
+							</thead>
+							{% if infrastructures %}
+							<tbody>
+								{% for infrastructure in infrastructures %}
+								  <tr>
+									<th scope="row">{{ infrastructure.id }}</th>
+									<td>{{ infrastructure.infrastructure }}</td>
+									<td>{{ infrastructure.maintenanceDate }}</td>
+								  </tr>
+								{% endfor %}
+							</tbody>
+							{% else %}
+								<p>il n\'y a pas de infrastructure.</p>
+							{% endif %}
+						</table>
+					</div>
+					<div style="width: 45%; float: right; margin-right: 2%;">
+						<p class="titre">MACHINES MAJ</p>
+						<p class="titre">nombre de machines : {{ nb_machines }}</p>
+						<table class="table table-dark">
+							<thead>
+							  <tr>
+								<th scope="col">#</th>
+								<th scope="col">Nom Machine</th>
+								<th scope="col">MaintenanceDate</th>
+							  </tr>
+							</thead>
+							{% if machines %}
+							<tbody>
+								{% for machine in machines %}
+								  <tr>
+									<th scope="row">{{ machine.id }}</th>
+									<td>{{ machine.nom }}</td>
+									<td>{{ machine.maintenanceDate }}</td>
+								  </tr>
+								{% endfor %}
+							</tbody>
+							{% else %}
+								<p>il n\'y a pas de machine.</p>
+							{% endif %}
+						</table>
+					</div>
+				</div>
 		{% endblock content %}
 	</body>
 </html>
