@@ -14,6 +14,15 @@ def index(request) :
 	context = {}
 	return render(request, 'index.html', context=context)
 
+def dashboard(request) :
+	machines = Machine.objects.order_by('maintenanceDate')
+	infrastructures = Infrastructure.objects.order_by('maintenanceDate')
+	context = {
+		'machines': machines,
+		'infrastructures': infrastructures
+	}
+	return render(request, 'dashboard.html', context)
+
 
 
 def machine_list_view(request) :
@@ -27,6 +36,7 @@ def machine_add_form(request):
 		machine = AddMachineForm(request.POST or None)
 		if machine.is_valid():
 			machine.save()
+			return render(request, 'machines',context)
 	else:
 		machine = AddMachineForm()
 	context = {'machine': machine}
@@ -54,6 +64,7 @@ def personnelle_add_form(request):
 		personnelle = AddPersonnelleForm(request.POST or None)
 		if personnelle.is_valid():
 			personnelle.save()
+			return redirect('personnelles')
 	else:
 		personnelle = AddPersonnelleForm()
 	context = {'personnelle': personnelle}
@@ -79,6 +90,7 @@ def infrastructure_add_form(request):
 		infrastructure = AddInfrastructureForm(request.POST or None)
 		if infrastructure.is_valid():
 			infrastructure.save()
+			return redirect('infrastructures')
 	else:
 		infrastructure = AddInfrastructureForm()
 	context = {'infrastructure': infrastructure}

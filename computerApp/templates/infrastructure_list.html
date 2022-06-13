@@ -8,7 +8,6 @@
         <th scope="col">#</th>
         <th scope="col">Nom Infrastructure</th>
         <th scope="col">Responsable</th>
-        <th scope="col">Nombre de Machine</th>
         <th scope="col">MaintenanceDate</th>
         <th scope="col">Date de Creation</th>
         <th scope="col">Supprimer</th>
@@ -21,7 +20,6 @@
             <th scope="row">{{ infrastructure.id }}</th>
             <td>{{ infrastructure.infrastructure }}</td>
             <td>{{infrastructure.responsable}}</td>
-            <td>{{ infrastructure.nb_machine }}</td>
             <td>{{ infrastructure.maintenanceDate }}</td>
             <td>{{infrastructure.date_creation}}</td>
             <td><a href="{% url 'infrastructure_remove' infrastructure.id %}" class="btn btn-danger">Supprimer</a></td>
@@ -31,7 +29,9 @@
     {% else %}
         <p>il n\'y a pas de infrastructure.</p>
     {% endif %}
-    <a href="{% url 'infrastructure_add' %}">ajouter infrastructure</a>
 </table>
+<div style="width: 100%; text-align: center;">
+<a href="{% url 'infrastructure_add' %}" class="btn btn-info" >ajouter infrastructure</a>
+</div>
 {% endblock %}
 

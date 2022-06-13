@@ -33,6 +33,8 @@
     {% else %}
         <p>il n\'y a pas de personnelle.</p>
     {% endif %}
-    <a href="{% url 'personnelle_add' %}">ajouter personnelle</a>
 </table>
+<div style="width: 100%; text-align: center;">
+    <a href="{% url 'personnelle_add' %}" class="btn btn-info" >ajouter personnelle</a>
+  </div>
 {% endblock %}

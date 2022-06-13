@@ -16,10 +16,10 @@
 			<ul class="navbar-nav" style="width: 100%;">
 				<li style="width: 20%;">{% load static %}
 					<img src="{% static 'computerapp/images/rtdev_nobg.png' %}" alt="logo" style="width: 70%;"></li>
-				<li class="nav-item text-primary"><a class="navbar-brand" href="{% url 'index' %}">accueil</a></li>
-				<li class="nav-item text-primary"><a class="navbar-brand" href="{% url 'machines' %}">machines</a></li>
-				<li class="nav-item text-primary"><a class="navbar-brand" href="{% url 'personnelles' %}">personnelles</a></li>
-				<li class="nav-item text-primary"><a class="navbar-brand" href="{% url 'infrastructures' %}">infrastructures</a></li>
+				<li class="nav-item"><a class="navbar-brand" style="color: #007bff;" href="{% url 'dashboard' %}">dashboard</a></li>
+				<li class="nav-item"><a class="navbar-brand" style="color: #007bff;" href="{% url 'machines' %}">machines</a></li>
+				<li class="nav-item"><a class="navbar-brand" style="color: #007bff;" href="{% url 'personnelles' %}">personnelles</a></li>
+				<li class="nav-item"><a class="navbar-brand" style="color: #007bff;" href="{% url 'infrastructures' %}">infrastructures</a></li>
 			</ul>
 		</nav>
 		{% endblock %}

@@ -36,7 +36,6 @@ class Infrastructure(models.Model):
     
     id = models.AutoField(primary_key=True,editable=False)
     infrastructure= models.CharField(max_length= 1)
-    responsable=models.CharField(max_length=15) 
-    nb_machine=models.CharField(max_length=12)
+    responsable=models.CharField(max_length=15)
     maintenanceDate = models.DateField(default = datetime.now())
     date_creation=models.DateField(default = datetime.now())

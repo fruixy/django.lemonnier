@@ -20,4 +20,4 @@ class AddPersonnelleForm(forms.ModelForm):
 class AddInfrastructureForm(forms.ModelForm):
     class Meta:
         model = Infrastructure
-        fields = ('infrastructure','responsable', 'nb_machine', 'maintenanceDate', 'date_creation')
+        fields = ('infrastructure','responsable', 'maintenanceDate', 'date_creation')

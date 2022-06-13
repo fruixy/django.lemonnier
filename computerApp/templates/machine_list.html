@@ -33,6 +33,8 @@
     {% else %}
         <p>il n\'y a pas de machine.</p>
     {% endif %}
-    <a href="{% url 'machine_add' %}">ajouter machine</a>
 </table>
+<div style="width: 100%; text-align: center;">
+  <a href="{% url 'machine_add' %}" class="btn btn-info" >ajouter machine</a>
+</div>
 {% endblock %}
