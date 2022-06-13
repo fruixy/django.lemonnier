@@ -1,18 +1,36 @@
 {% extends "index.html" %}
 
 {% block content %}
-    <h1>MACHINES</h1>
+<p class="titre">MACHINES</p>
+<table class="table table-dark">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nom</th>
+        <th scope="col">Utilisateur</th>
+        <th scope="col">Responsable</th>
+        <th scope="col">Infrastructure</th>
+        <th scope="col">Date Maintenance</th>
+        <th scope="col"> Type Machine</th>
+      </tr>
+    </thead>
     {% if machines %}
-    <ul>
+    <tbody>
         {% for machine in machines %}
-            <li>
-                <a href="{% url 'machine_detail' machine.id %}">
-                {{ machine.id}} </a>  {{machine.nom}}
-            </li>
+          <tr>
+            <th scope="row">{{ machine.id }}</th>
+            <td>{{ machine.nom }}</td>
+            <td>{{machine.utilisateur}}</td>
+            <td>{{ machine.responsable }}</td>
+            <td>{{ machine.infrastructure }}</td>
+            <td>{{machine.maintenanceDate}}</td>
+            <td>{{ machine.mach }}</td>
+          </tr>
         {% endfor %}
-    </ul>
+    </tbody>
     {% else %}
         <p>il n\'y a pas de machine.</p>
     {% endif %}
     <a href="{% url 'machine_add' %}">ajouter machine</a>
+</table>
 {% endblock %}

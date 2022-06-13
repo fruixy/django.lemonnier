@@ -5,37 +5,19 @@ from computerApp.models import Personnelle
 from computerApp.models import Infrastructure
 
 
-class AddMachineForm(forms.Form) :
-
-    nom = forms.CharField(required=True, label='Nom de la machine')
-
-    def clean_nom(self):
-        data = self.cleaned_data['nom']
-        if len(data) != 6:
-            raise ValidationError(("Erreur de format pour le champs nom"))
-        
-        return data
+class AddMachineForm(forms.ModelForm) :
+    class Meta:
+        model = Machine
+        fields = ('nom', 'utilisateur', 'responsable', 'infrastructure', 'maintenanceDate', 'mach')
 
 
-class AddInfrastructureForm(forms.Form):
-    
-    nom=forms.CharField(label="nom infrastructure")
-    
-    def clean_infra(self):
-        data=self.cleaned_data["nom"]
-        if len(data) != 1:
-            raise ValidationError(("erreur de format pour le champs 'nom'"))
-        
-        return data
+class AddPersonnelleForm(forms.ModelForm):
+    class Meta:
+        model = Personnelle
+        fields = ('nom', 'prenom', 'infrastructure', 'email', 'num', 'date_entree')
         
 
-class AddPersonnelleForm(forms.Form):
-    
-    nom=forms.CharField(label="personnelle")
-    
-    def clean_personnelle(self):
-        data=self.cleaned_data["nom"]
-        if len(data) != 1:
-            raise ValidationError(("erreur de format pour le champs 'nom'"))
-        
-        return data
+class AddInfrastructureForm(forms.ModelForm):
+    class Meta:
+        model = Infrastructure
+        fields = ('infrastructure','responsable', 'nb_machine', 'maintenanceDate', 'date_creation')

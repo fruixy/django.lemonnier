@@ -1,9 +1,11 @@
 {% extends "index.html" %}
 
 {% block content %}
+<h1>ajouter machine</h1>
 <form method="post">
     {% csrf_token %}
-    <h1>Nom: </h1>{{ form.nom }}
-    <input type="submit" value="Submit">
+    {{ machine.as_p }}
+    <input type="submit" class="btn btn-primary" value="ajouter">
 </form>
+
 {% endblock %}

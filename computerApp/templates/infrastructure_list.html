@@ -1,18 +1,34 @@
 {% extends "index.html" %}
 
 {% block content %}
-    <h1>infrastructureS</h1>
+<p class="titre">INFRASTRUCTURES</p>
+<table class="table table-dark">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nom Infrastructure</th>
+        <th scope="col">Responsable</th>
+        <th scope="col">Nombre de Machine</th>
+        <th scope="col">MaintenanceDate</th>
+        <th scope="col">Date de Creation</th>
+      </tr>
+    </thead>
     {% if infrastructures %}
-    <ul>
+    <tbody>
         {% for infrastructure in infrastructures %}
-            <li>
-                <a href="{% url 'infrastructure_detail' infrastructure.id %}">
-                {{ infrastructure.id}} </a>  {{infrastructure.nom}}
-            </li>
+          <tr>
+            <th scope="row">{{ infrastructure.id }}</th>
+            <td>{{ infrastructure.infrastructure }}</td>
+            <td>{{infrastructure.responsable}}</td>
+            <td>{{ infrastructure.nb_machine }}</td>
+            <td>{{ infrastructure.maintenanceDate }}</td>
+            <td>{{infrastructure.date_creation}}</td>
+          </tr>
         {% endfor %}
-    </ul>
+    </tbody>
     {% else %}
         <p>il n\'y a pas de infrastructure.</p>
     {% endif %}
     <a href="{% url 'infrastructure_add' %}">ajouter infrastructure</a>
+</table>
 {% endblock %}

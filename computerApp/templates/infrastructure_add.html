@@ -1,0 +1,11 @@
+{% extends "index.html" %}
+
+{% block content %}
+<h1>ajouter infrastructure</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ infrastructure.as_p }}
+    <input type="submit" class="btn btn-primary" value="ajouter">
+</form>
+
+{% endblock %}

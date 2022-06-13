@@ -27,18 +27,15 @@ def machine_detail_view(request, pk) :
 
 def machine_add_form(request):
 	if request.method == 'POST':
-		form = AddMachineForm(request.POST or None)
-		if form.is_valid():
-			new_machine = Machine(
-				nom=form.cleaned_data['nom']
-				)
-			new_machine.save()
-			return redirect('machines')
-	
+		machine = AddMachineForm(request.POST or None)
+		if machine.is_valid():
+			machine.save()
 	else:
-		form = AddMachineForm()
-		context = {'form': form}
-		return render(request, 'machine_add.html',context)
+		machine = AddMachineForm()
+	context = {'machine': machine}
+	return render(request, 'machine_add.html',context)
+
+		
 
 
 
@@ -56,16 +53,13 @@ def personnelle_detail_view(request, pk) :
 
 def personnelle_add_form(request):
 	if request.method == 'POST':
-		form = AddPersonnelleForm(request.POST or None)
-		if form.is_valid():
-			new_personnelle = Personnelle(nom=form.cleaned_data['nom'])
-			new_personnelle.save()
-			return redirect('personnelles')
-	
+		personnelle = AddPersonnelleForm(request.POST or None)
+		if personnelle.is_valid():
+			personnelle.save()
 	else:
-		form = AddPersonnelleForm()
-		context = {'form': form}
-		return render(request, 'personnelle_add.html',context)
+		personnelle = AddPersonnelleForm()
+	context = {'personnelle': personnelle}
+	return render(request, 'personnelle_add.html',context)
 
 
 
@@ -82,13 +76,10 @@ def infrastructure_detail_view(request, pk) :
 
 def infrastructure_add_form(request):
 	if request.method == 'POST':
-		form = AddInfrastructureForm(request.POST or None)
-		if form.is_valid():
-			new_infrastructure = Infrastructure(nom=form.cleaned_data['infrastructure'])
-			new_infrastructure.save()
-			return redirect('machines')
-	
+		infrastructure = AddInfrastructureForm(request.POST or None)
+		if infrastructure.is_valid():
+			infrastructure.save()
 	else:
-		form = AddInfrastructureForm()
-		context = {'form': form}
-		return render(request, 'infrastructure_add.html',context)
+		infrastructure = AddInfrastructureForm()
+	context = {'infrastructure': infrastructure}
+	return render(request, 'infrastructure_add.html',context)

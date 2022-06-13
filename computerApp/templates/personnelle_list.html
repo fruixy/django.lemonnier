@@ -1,0 +1,36 @@
+{% extends "index.html" %}
+
+{% block content %}
+<p class="titre">PERSONNELLES</p>
+<table class="table table-dark">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nom</th>
+        <th scope="col">Prenom</th>
+        <th scope="col">Infrastructure</th>
+        <th scope="col">Email</th>
+        <th scope="col">Num</th>
+        <th scope="col"> Date Entree</th>
+      </tr>
+    </thead>
+    {% if personnelles %}
+    <tbody>
+        {% for personnelle in personnelles %}
+          <tr>
+            <th scope="row">{{ personnelle.id }}</th>
+            <td>{{ personnelle.nom }}</td>
+            <td>{{personnelle.prenom}}</td>
+            <td>{{ personnelle.infrastructure }}</td>
+            <td>{{ personnelle.email }}</td>
+            <td>{{personnelle.num}}</td>
+            <td>{{ personnelle.date_entree }}</td>
+          </tr>
+        {% endfor %}
+    </tbody>
+    {% else %}
+        <p>il n\'y a pas de personnelle.</p>
+    {% endif %}
+    <a href="{% url 'personnelle_add' %}">ajouter personnelle</a>
+</table>
+{% endblock %}

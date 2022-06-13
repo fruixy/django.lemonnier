@@ -1,4 +1,10 @@
+*{
+    color: #007bff;
+}
 
+body{
+    background: rgb(85,85,85);
+}
 
 .navbar-brand{
     font-size: 200%;
@@ -7,4 +13,10 @@
 .nav-item{
     width: 20%;
     margin-top: 1.5%;
+}
+
+.titre {
+    margin-top: 2%;
+    text-align: center;
+    font-size: 200%;
 }
