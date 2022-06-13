@@ -14,15 +14,12 @@ def index(request) :
 	context = {}
 	return render(request, 'index.html', context=context)
 
+
+
 def machine_list_view(request) :
 	machines = Machine.objects.all()
 	context={'machines': machines}
 	return render(request, 'machine_list.html', context)
-
-def machine_detail_view(request, pk) :
-	machine = get_object_or_404(Machine, id=pk)
-	context={'machine': machine}
-	return render(request, 'machine_detail.html', context)
 
 
 def machine_add_form(request):
@@ -35,6 +32,12 @@ def machine_add_form(request):
 	context = {'machine': machine}
 	return render(request, 'machine_add.html',context)
 
+def machine_remove(request, id):
+	post = Machine.objects.get(id=id)
+	post.delete()
+	return redirect('machines')
+	return render(request, 'machine_remove.html')
+
 		
 
 
@@ -44,11 +47,6 @@ def personnelle_list_view(request) :
 	personnelles = Personnelle.objects.all()
 	context={'personnelles': personnelles}
 	return render(request, 'personnelle_list.html', context)
-
-def personnelle_detail_view(request, pk) :
-	personnelle = get_object_or_404(Personnelle, id=pk)
-	context={'personnelle': personnelle}
-	return render(request, 'personnelle_detail.html', context)
 
 
 def personnelle_add_form(request):
@@ -61,17 +59,19 @@ def personnelle_add_form(request):
 	context = {'personnelle': personnelle}
 	return render(request, 'personnelle_add.html',context)
 
+def personnelle_remove(request, id):
+	post = Personnelle.objects.get(id=id)
+	post.delete()
+	return redirect('personnelles')
+	return render(request, 'personnelle_remove.html')
+
+
 
 
 def infrastructure_list_view(request):
 	infrastructures = Infrastructure.objects.all()
 	context={'infrastructures': infrastructures}
 	return render(request, 'infrastructure_list.html', context)
-
-def infrastructure_detail_view(request, pk) :
-	infrastructure = get_object_or_404(Infrastructure, id=pk)
-	context={'infrastructure': infrastructure}
-	return render(request, 'infrastructure_detail.html', context)
 
 
 def infrastructure_add_form(request):
@@ -83,3 +83,9 @@ def infrastructure_add_form(request):
 		infrastructure = AddInfrastructureForm()
 	context = {'infrastructure': infrastructure}
 	return render(request, 'infrastructure_add.html',context)
+
+def infrastructure_remove(request, id):
+	post = Infrastructure.objects.get(id=id)
+	post.delete()
+	return redirect('infrastructures')
+	return render(request, 'infrastructure_remove.html')

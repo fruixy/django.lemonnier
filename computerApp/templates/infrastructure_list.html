@@ -11,6 +11,7 @@
         <th scope="col">Nombre de Machine</th>
         <th scope="col">MaintenanceDate</th>
         <th scope="col">Date de Creation</th>
+        <th scope="col">Supprimer</th>
       </tr>
     </thead>
     {% if infrastructures %}
@@ -23,6 +24,7 @@
             <td>{{ infrastructure.nb_machine }}</td>
             <td>{{ infrastructure.maintenanceDate }}</td>
             <td>{{infrastructure.date_creation}}</td>
+            <td><a href="{% url 'infrastructure_remove' infrastructure.id %}" class="btn btn-danger">Supprimer</a></td>
           </tr>
         {% endfor %}
     </tbody>
@@ -32,3 +34,4 @@
     <a href="{% url 'infrastructure_add' %}">ajouter infrastructure</a>
 </table>
 {% endblock %}
+
